@@ -1,0 +1,14 @@
+FallbackResource /api_carta/api/index.php
+
+# Pasar la cabecera Authorization a PHP (Apache la elimina por defecto con mod_php/CGI)
+CGIPassAuth On
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule mod_setenvif.c>
+    SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+</IfModule>
