@@ -108,7 +108,7 @@ Las peticiones usan dos variables de colección: `base` (dirección de la API) y
 ### 8. Página de la carta (front-end)
 
 - [index.html](index.html) es la página pública. Tiene un contenedor `#carta` vacío que se rellena con JavaScript.
-- [js/funciones.js](js/funciones.js) pide los platos a la API con `fetch`, comprueba que la respuesta sea correcta y crea una tarjeta `.plato` por cada uno, con nombre, descripción y precio.
+- [js/funciones.js](js/funciones.js) pide los platos a la API con `fetch`, comprueba que la respuesta sea correcta y crea una tarjeta `.plato` por cada uno, con nombre, categoría y precio.
 
 ### 9. Estilo de restaurante mediterráneo
 
@@ -118,7 +118,7 @@ Las peticiones usan dos variables de colección: `base` (dirección de la API) y
 - **Fuentes:** *Playfair Display* para los títulos y *Lato* para el texto, cargadas desde Google Fonts.
 - **Fondo:** color arena con un dibujo suave de azulejo hecho solo con gradientes, sin imágenes.
 - **Cabecera:** fondo azul con el subtítulo «Cocina mediterránea» y una línea amarilla debajo.
-- **Platos:** tarjetas en una rejilla que se adapta al ancho (`grid` + `auto-fit`), con un borde terracota, una ramita 🌿 y el precio destacado. Al pasar el ratón, la tarjeta sube un poco.
+- **Platos:** tarjetas en una rejilla que se adapta al ancho (`grid` + `auto-fit`), con un borde terracota, una ramita 🌿, la categoría como etiqueta verde oliva y el precio destacado. Al pasar el ratón, la tarjeta sube un poco.
 - **Responsive:** en pantallas pequeñas se reducen los márgenes.
 
 ## Instalación y puesta en marcha (XAMPP)
@@ -149,8 +149,5 @@ Las peticiones usan dos variables de colección: `base` (dirección de la API) y
 
 ## Pendiente
 
-- **La descripción de los platos:** [js/funciones.js](js/funciones.js) muestra `plato.descripcion`, pero ni la tabla `platos` ni la API tienen ese campo, así que la carta muestra «undefined». Hay dos soluciones:
-  - añadir una columna `descripcion` a la tabla, a la validación, a la función `plato()` y a `openapi.yaml`;
-  - o mostrar la categoría en su lugar, con `plato.categoria`.
 - **Los platos no disponibles:** la API devuelve todos los platos, también los que tienen `disponible: false`. Habría que decidir si la carta los oculta o los marca como agotados.
 - **Las direcciones de los ejemplos:** `openapi.yaml` y las colecciones de Postman usan rutas distintas en algunos ejemplos (`/carta/api` y `/api_carta/api`). Conviene dejarlas todas iguales.

@@ -23,6 +23,7 @@ fetch(url)
       divPlato.classList.add("plato");
       divPlato.innerHTML = `
         <h3>${plato.nombre}</h3>
+        <p class="categoria">${plato.categoria}</p>
         <p>Precio: ${plato.precio} €</p>
       `;
       divCarta.appendChild(divPlato);
